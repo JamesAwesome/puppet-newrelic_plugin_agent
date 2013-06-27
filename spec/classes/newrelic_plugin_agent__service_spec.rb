@@ -8,7 +8,7 @@ describe 'newrelic_plugin_agent::service', :type => 'class' do
     cfg_dir  = '/etc/newrelic'
     cfg_file = "#{cfg_dir}/newrelic_plugin_agent.cfg"
     let(:facts) { { :osfamily => 'Debian' } }
-    let(:params) { { :service_user => 'newrelic', :cfg_dir => cfg_dir, :cfg_file => cfg_file } }
+    let(:params) { { :service_user => 'newrelic', :cfg_dir => cfg_dir, :cfg_file => cfg_file, :pidfile => 'foo'} }
     it "On debian install the upstart script and start newrelic-plugin-agent" do
       should contain_file('/etc/init.d/newrelic_plugin_agent').with(
         'ensure'  => 'present',
@@ -32,12 +32,12 @@ describe 'newrelic_plugin_agent::service', :type => 'class' do
     cfg_dir  = '/etc/newrelic'
     cfg_file = "#{cfg_dir}/newrelic_plugin_agent.cfg"
     let(:facts) { { :osfamily => 'RedHat' } }
-    let(:params) { { :service_user => 'newrelic', :cfg_dir => cfg_dir, :cfg_file => cfg_file } }
+    let(:params) { { :service_user => 'newrelic', :cfg_dir => cfg_dir, :cfg_file => cfg_file, :pidfile => 'foo' } }
 
     it "On RedHat based host install the rhel init script" do
       should contain_file('/etc/init.d/newrelic_plugin_agent').with(
         'ensure'  => 'present',
-	'content' => /CONFIG_DIR="\/etc\/newrelic"/,
+	'content' => /CONFIG_DIR="\/etc\/newrelic".*PID_FILE="foo"/m,
         'owner'   => 'root',
         'group'   => 'root',
         'mode'    => '755',

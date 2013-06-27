@@ -14,7 +14,8 @@ describe 'newrelic_plugin_agent::config', :type => 'class' do
       :licence_key    => 'foo', 
       :poll_interval  => "40",
       :agent_loglevel => 'INFO',
-      :cfg_file       => cfg_file
+      :cfg_file       => cfg_file,
+      :pidfile        => 'foo'
     } }
 
 
@@ -32,7 +33,7 @@ describe 'newrelic_plugin_agent::config', :type => 'class' do
       )
       should contain_concat__fragment('newrelic_plugin_agent_footer').with(
         'target'  => cfg_file,
-        'content' => /user: newrelic.*level: INFO/m,
+        'content' => /user: newrelic.*pidfile: foo.*level: INFO/m,
         'order'   => '99'
       )
     end

@@ -3,7 +3,9 @@ class newrelic_plugin_agent::config(
   $licence_key    = $::newrelic_plugin_agent::licence_key,
   $poll_interval  = $::newrelic_plugin_agent::poll_interval,
   $agent_loglevel = $::newrelic_plugin_agent::agent_loglevel,
-  $cfg_file       = $::newrelic_plugin_agent::cfg_file
+  $cfg_file       = $::newrelic_plugin_agent::cfg_file,
+  $log_file       = $::newrelic_plugin_agent::log_file,
+  $pidfile        = $::newrelic_plugin_agent::pidfile
 ) {
 
   concat {$cfg_file:
