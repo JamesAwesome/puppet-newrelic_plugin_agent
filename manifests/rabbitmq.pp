@@ -1,6 +1,6 @@
 class newrelic_plugin_agent::rabbitmq(
-  $name,
-  $host,
+  $vhostname,
+  $node,
   $port,
   $username,
   $password,

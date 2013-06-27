@@ -1,0 +1,7 @@
+# This snippit managed by puppet
+  apache_httpd:
+   name: <%= @vhostname %>
+   host: <%= @node %>
+   port: <%= @port %>
+   path: <%= @path %>
+
