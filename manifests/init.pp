@@ -7,7 +7,7 @@ class newrelic_plugin_agent(
   $agent_loglevel = 'INFO',
   $cfg_dir        = '/etc/newrelic',
   $log_dir        = '/var/log/newrelic',
-  $pidfile        = '/var/run/newrelic/newrelic_plugin_agent.pid'
+  $pid_file       = '/var/run/newrelic/newrelic_plugin_agent.pid'
 ) {
  
   $cfg_file       = "${cfg_dir}/newrelic_plugin_agent.cfg"

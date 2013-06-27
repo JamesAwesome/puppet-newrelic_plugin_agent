@@ -2,7 +2,7 @@ class newrelic_plugin_agent::service(
   $service_user = $::newrelic_plugin_agent::service_user,
   $cfg_dir      = $::newrelic_plugin_agent::cfg_dir,
   $cfg_file     = $::newrelic_plugin_agent::cfg_file,
-  $pidfile      = $::newrelic_plugin_agent::pidfile
+  $pid_file      = $::newrelic_plugin_agent::pid_file
 ) {
 
   file {'/etc/init.d/newrelic_plugin_agent':

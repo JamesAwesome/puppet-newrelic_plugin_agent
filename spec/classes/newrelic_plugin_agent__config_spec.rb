@@ -15,7 +15,7 @@ describe 'newrelic_plugin_agent::config', :type => 'class' do
       :poll_interval  => "40",
       :agent_loglevel => 'INFO',
       :cfg_file       => cfg_file,
-      :pidfile        => 'foo'
+      :pid_file        => 'foo'
     } }
 
 
