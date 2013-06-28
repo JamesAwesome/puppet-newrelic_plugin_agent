@@ -15,7 +15,7 @@ describe 'newrelic_plugin_agent::rabbitmq', :type => 'class' do
 
     it { should contain_concat__fragment('newrelic_plugin_agent_rabbitmq').with(
       'target'  => '/etc/newrelic/newrelic_plugin_agent.cfg',
-      'content' => /name: foo.*host: foo.* username: foo.*password: foo/m,
+      'content' => /rabbitmq:.*name: foo.*host: foo.* username: foo.*password: foo/m,
       'order'   => '03'
     ) }
   end

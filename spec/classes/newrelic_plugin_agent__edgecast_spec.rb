@@ -13,7 +13,7 @@ describe 'newrelic_plugin_agent::edgecast', :type => 'class' do
 
     it { should contain_concat__fragment('newrelic_plugin_agent_edgecast').with(
       'target'  => '/etc/newrelic/newrelic_plugin_agent.cfg',
-      'content' => /name: foo.*account: 123.* token: 123/m,
+      'content' => /edgecast:.*name: foo.*account: 123.* token: 123/m,
       'order'   => '03'
     ) }
   end

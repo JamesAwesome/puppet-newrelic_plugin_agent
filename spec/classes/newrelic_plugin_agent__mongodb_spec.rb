@@ -16,7 +16,7 @@ describe 'newrelic_plugin_agent::mongodb', :type => 'class' do
 
     it { should contain_concat__fragment('newrelic_plugin_agent_mongodb').with(
       'target'  => '/etc/newrelic/newrelic_plugin_agent.cfg',
-      'content' => /name: foo.*host: foo.*port: 27017.*username: bar.*password: bar.*databases:\n\s+- foo\n\s+- bar/m,
+      'content' => /mongodb:.*name: foo.*host: foo.*port: 27017.*username: bar.*password: bar.*databases:\n\s+- foo\n\s+- bar/m,
       'order'   => '03'
     ) }
   end

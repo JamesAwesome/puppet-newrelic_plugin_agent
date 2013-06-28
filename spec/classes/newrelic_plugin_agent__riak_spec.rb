@@ -13,7 +13,7 @@ describe 'newrelic_plugin_agent::riak', :type => 'class' do
 
     it { should contain_concat__fragment('newrelic_plugin_agent_riak').with(
       'target'  => '/etc/newrelic/newrelic_plugin_agent.cfg',
-      'content' => /host: foo.*port: 123.* user: bar/m,
+      'content' => /riak:.*host: foo.*port: 123.* user: bar/m,
       'order'   => '03'
     ) }
   end

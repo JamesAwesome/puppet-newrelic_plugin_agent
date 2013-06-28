@@ -16,7 +16,7 @@ describe 'newrelic_plugin_agent::redis', :type => 'class' do
 
     it { should contain_concat__fragment('newrelic_plugin_agent_redis').with(
       'target'  => '/etc/newrelic/newrelic_plugin_agent.cfg',
-      'content' => /- name: foo.*host: foo.*port: 27017.*db_count: 6.*password: bar/m,
+      'content' => /redis:.*- name: foo.*host: foo.*port: 27017.*db_count: 6.*password: bar/m,
       'order'   => '03'
     ) }
   end
@@ -33,7 +33,7 @@ describe 'newrelic_plugin_agent::redis', :type => 'class' do
 
     it { should contain_concat__fragment('newrelic_plugin_agent_redis').with(
       'target'  => '/etc/newrelic/newrelic_plugin_agent.cfg',
-      'content' => /- name: foo.*host: foo.*port: 123.*db_count: 6.*- name: foo2.*host: foo2.*port: 456.*db_count: 7.*password: bar/m,
+      'content' => /redis:.*- name: foo.*host: foo.*port: 123.*db_count: 6.*- name: foo2.*host: foo2.*port: 456.*db_count: 7.*password: bar/m,
       'order'   => '03'
     ) }
   end

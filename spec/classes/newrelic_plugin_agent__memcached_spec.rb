@@ -13,7 +13,7 @@ describe 'newrelic_plugin_agent::memcached', :type => 'class' do
 
     it { should contain_concat__fragment('newrelic_plugin_agent_memcached').with(
       'target'  => '/etc/newrelic/newrelic_plugin_agent.cfg',
-      'content' => /name: foo.*host: foo.* port: 11211/m,
+      'content' => /memcached:.*name: foo.*host: foo.* port: 11211/m,
       'order'   => '03'
     ) }
   end

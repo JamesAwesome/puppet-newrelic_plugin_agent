@@ -13,7 +13,7 @@ describe 'newrelic_plugin_agent::pgbouncer', :type => 'class' do
 
     it { should contain_concat__fragment('newrelic_plugin_agent_pgbouncer').with(
       'target'  => '/etc/newrelic/newrelic_plugin_agent.cfg',
-      'content' => /host: foo.*port: 123.* user: bar/m,
+      'content' => /pgbouncer:.*host: foo.*port: 123.* user: bar/m,
       'order'   => '03'
     ) }
   end
