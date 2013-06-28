@@ -17,6 +17,10 @@ class newrelic_plugin_agent(
           newrelic_plugin_agent::config,
           newrelic_plugin_agent::service
 
+  if $::osfamily !~ /(Debian|RedHat)/ {
+    fail("osfamily: ${::osfamily} is incompatible with this module")
+  }
+
   package{'newrelic-plugin-agent':
     ensure   => $ensure,
     source   => $source,

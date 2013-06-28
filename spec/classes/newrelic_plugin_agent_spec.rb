@@ -38,4 +38,16 @@ describe 'newrelic_plugin_agent', :type => 'class' do
       end
     end
   end
+
+  context "If called from a gentoo host" do
+    cfg_dir  = '/etc/newrelic'
+    cfg_file = "#{cfg_dir}/newrelic_plugin_agent.cfg"
+    let(:facts) { { :osfamily => 'Gentoo' } }
+
+    it do
+      raise_error(Puppet::Error, /osfamily: Gentoo is incompatible with this module/)
+    end
+  end
+
+
 end

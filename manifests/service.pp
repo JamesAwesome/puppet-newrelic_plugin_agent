@@ -2,7 +2,7 @@ class newrelic_plugin_agent::service(
   $service_user = $::newrelic_plugin_agent::service_user,
   $cfg_dir      = $::newrelic_plugin_agent::cfg_dir,
   $cfg_file     = $::newrelic_plugin_agent::cfg_file,
-  $pid_file      = $::newrelic_plugin_agent::pid_file
+  $pid_file     = $::newrelic_plugin_agent::pid_file
 ) {
 
   file {'/etc/init.d/newrelic_plugin_agent':
@@ -10,7 +10,6 @@ class newrelic_plugin_agent::service(
     content => $::osfamily ? {
       'Debian' => template('newrelic_plugin_agent/newrelic_plugin_agent.deb.erb'),
       'RedHat' => template('newrelic_plugin_agent/newrelic_plugin_agent.rhel.erb'),
-      default  => err("osfamily: ${::osfamily} is incompatible with this module")
     },
     owner   => 'root',
     group   => 'root',
