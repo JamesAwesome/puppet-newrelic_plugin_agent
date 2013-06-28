@@ -1,0 +1,7 @@
+# This snippit managed by puppet
+  nginx:
+    name: <%= @vhostname %>
+    host: <%= @node %>
+    port: <%= @port %>
+    path: <%= @path %>
+
