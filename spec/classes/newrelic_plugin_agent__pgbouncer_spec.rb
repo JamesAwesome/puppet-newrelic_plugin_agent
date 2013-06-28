@@ -2,19 +2,18 @@ require 'rubygems'
 require 'bundler/setup'
 require 'spec_helper'
 
-describe 'newrelic_plugin_agent::postgresql', :type => 'class' do
+describe 'newrelic_plugin_agent::pgbouncer', :type => 'class' do
   context "When called with valid parameters" do
     let(:params) { {
-      :dbhost   => 'foo',
+      :pghost   => 'foo',
       :port     => '123',
-      :username => '123',
-      :dbname   => 'foobar',
+      :username => 'bar',
       :cfg_file => '/etc/newrelic/newrelic_plugin_agent.cfg'
     } }
 
-    it { should contain_concat__fragment('newrelic_plugin_agent_postgresql').with(
+    it { should contain_concat__fragment('newrelic_plugin_agent_pgbouncer').with(
       'target'  => '/etc/newrelic/newrelic_plugin_agent.cfg',
-      'content' => /host: foo.*port: 123.* user: 123.*dbname: foobar/m,
+      'content' => /host: foo.*port: 123.* user: bar/m,
       'order'   => '03'
     ) }
   end

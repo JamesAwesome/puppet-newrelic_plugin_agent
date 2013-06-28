@@ -1,5 +1,5 @@
 class newrelic_plugin_agent::postgresql(
-  $pghost,
+  $dbhost,
   $port,
   $username,
   $dbname,
