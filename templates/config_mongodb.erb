@@ -3,12 +3,12 @@
     name: <%= @mongodb_name %>
     host: <%= @node %>
     port: <%= @port %>
-    <%- if @username -%>
+<%- if @username -%>
     username: <%= @username %>
     password: <%= @password %>
-    <%- end -%>
+<%- end -%>
     databases:
-    <%- @databases.each do |dbname| -%>
+<%- @databases.each do |dbname| -%>
     - <%= dbname %>
-    <%- end -%>
+<%- end -%>
 
