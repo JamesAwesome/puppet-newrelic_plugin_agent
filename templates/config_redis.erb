@@ -1,0 +1,22 @@
+# This config snippit managed by puppet
+  redis:
+<%- if @redis_name.is_a?(Hash) -%>
+  <%- @redis_name.keys.each do |key| -%>
+    - name: <%= @redis_name[key] %>
+      host: <%= @node[key] %>
+      port: <%= @port[key] %>
+      db_count: <%= @db_count[key] %>
+    <%- if @password[key] -%>
+      password: <%= @password[key] %>
+    <%- end -%>
+  <%- end -%>
+<%- else -%>
+    - name: <%= @redis_name %>
+      host: <%= @node %>
+      port: <%= @port %>
+      db_count: <%= @db_count %>
+  <%- if @password -%>
+      password: <%= @password %>
+  <%- end -%>
+<%- end -%>
+
